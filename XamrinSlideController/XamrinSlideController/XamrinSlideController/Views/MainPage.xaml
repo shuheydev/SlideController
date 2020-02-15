@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamrinSlideController.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style x:Key="buttonStyle" TargetType="Button">
+                    <Setter Property="CornerRadius" Value="100" />
+                    <Setter Property="FontSize" Value="Large" />
+                    <Setter Property="HeightRequest" Value="150" />
+                    <Setter Property="WidthRequest" Value="150" />
+                    <Setter Property="HorizontalOptions" Value="Center" />
+                    <Setter Property="VerticalOptions" Value="Center" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            d:Text="未接続"
+            FontSize="Large"
+            Text="{Binding StatusMessage}" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="Gray"
+            Command="{Binding ConnectCommand}"
+            FontSize="Large"
+            Style="{StaticResource buttonStyle}"
+            Text="接続"
+            TextColor="White" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="0"
+            BackgroundColor="Pink"
+            Command="{Binding SendMessageCommand}"
+            CommandParameter="prev"
+            Style="{StaticResource buttonStyle}"
+            Text="前" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="LightBlue"
+            Command="{Binding SendMessageCommand}"
+            CommandParameter="next"
+            Style="{StaticResource buttonStyle}"
+            Text="次" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="0"
+            BackgroundColor="CadetBlue"
+            Command="{Binding SendMessageCommand}"
+            CommandParameter="toggleSlideShow"
+            Style="{StaticResource buttonStyle}"
+            Text="停止/再開"
+            TextColor="White" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            BackgroundColor="Black"
+            Command="{Binding SendMessageCommand}"
+            CommandParameter="blackout"
+            Style="{StaticResource buttonStyle}"
+            Text="Black Out"
+            TextColor="White" />
+    </Grid>
+
+</ContentPage>
