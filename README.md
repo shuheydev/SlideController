@@ -55,6 +55,7 @@ Visual StudioからAzure App Serviceにデプロイします.
 Visual Studioでプロジェクトを開きます.
 
 `App.xaml.cs`を開き,以下の変数に`{デプロイ先のURL}/SlideController`を入れます.
+例:https://slidecontrollersignalrhub_sample.azurewebsites.net/SlideController
 
 ```cs
         private readonly string _signalRServerUrl = @"SignalRHubのURLをここに";
@@ -85,6 +86,13 @@ Visual Studioでプロジェクトを開きます.
 
 ## XamrinSlideController
 Xamarin.Forms製でプラットフォーム固有の機能などは使っていないので,Android,iOS,UWPのいずれでも動作するはずです.
+
+`MainPageViewModel.cs`を開いて,以下の変数に`{デプロイ先のURL}/SlideController`を入れます.
+例:https://slidecontrollersignalrhub_sample.azurewebsites.net/SlideController
+
+```cs
+        private readonly string _signalRServerUrl = @"SignalRHubのURLをここに";
+```
 
 実機をつないでアプリケーションを配置します.
 
