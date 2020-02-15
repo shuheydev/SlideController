@@ -1,0 +1,4 @@
+# SlideController
+SignalRを使ったPowerPointリモコンです.
+
+
