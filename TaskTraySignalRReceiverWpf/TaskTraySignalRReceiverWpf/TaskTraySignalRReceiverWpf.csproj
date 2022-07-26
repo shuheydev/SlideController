@@ -2,11 +2,20 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>communication.ico</ApplicationIcon>
+    <ApplicationIcon>Images\communication.ico</ApplicationIcon>
     <StartupObject>TaskTraySignalRReceiverWpf.App</StartupObject>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="communication.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\communication.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.0-preview3.19555.2" />
@@ -14,18 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="System.Drawing.Common">
-      <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.0-preview3.19553.2\System.Drawing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Windows.Forms">
-      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.1\System.Windows.Forms.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="communication.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Images\communication.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

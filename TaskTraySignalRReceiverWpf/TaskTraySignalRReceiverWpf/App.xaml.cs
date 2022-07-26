@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Windows;
-using System.Windows.Forms;
-using wpf = System.Windows;
+using forms = System.Windows.Forms;
 
 namespace TaskTraySignalRReceiverWpf
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : wpf.Application
+    public partial class App : Application
     {
         private readonly string _appName = "SlideControllReceiver";
         private readonly int _showDuration = 2000;
         private readonly string _signalRServerUrl = @"SignalRHubのURLをここに";
 
         private HubConnection _hubConnection;
-        private NotifyIcon _icon;
+        private forms.NotifyIcon _icon;
 
         private bool _isSlideshowOn = false;
 
@@ -29,29 +28,29 @@ namespace TaskTraySignalRReceiverWpf
             base.OnStartup(e);
 
             #region タスクトレイにアイコンを追加
-            _icon = new NotifyIcon();
+            _icon = new forms.NotifyIcon();
 
             //アイコン設定
-            _icon.Icon = new System.Drawing.Icon("./communication.ico");
+            _icon.Icon = new System.Drawing.Icon("Images/communication.ico");
             _icon.Text = _appName;
             //表示する
             _icon.Visible = true;
 
             #region Context Menuの作成
-            var menu = new ContextMenuStrip();
+            var menu = new forms.ContextMenuStrip();
 
             //終了アイテム
-            ToolStripMenuItem menuItem_Exit = new ToolStripMenuItem();
+            forms.ToolStripMenuItem menuItem_Exit = new forms.ToolStripMenuItem();
             menuItem_Exit.Text = "Exit";
             menuItem_Exit.Click += MenuItem_Exit_Click;
 
             //接続アイテム
-            ToolStripMenuItem menuItem_Connect = new ToolStripMenuItem();
+            forms.ToolStripMenuItem menuItem_Connect = new forms.ToolStripMenuItem();
             menuItem_Connect.Text = "Connect";
             menuItem_Connect.Click += MenuItem_Connect_Click;
 
             //切断アイテム
-            ToolStripMenuItem menuItem_Disconnect = new ToolStripMenuItem();
+            forms.ToolStripMenuItem menuItem_Disconnect = new forms.ToolStripMenuItem();
             menuItem_Disconnect.Text = "Disconnect";
             menuItem_Disconnect.Click += MenuItem_Disconnect_Click;
 
@@ -154,22 +153,22 @@ namespace TaskTraySignalRReceiverWpf
             switch (message)
             {
                 case "next":
-                    SendKeys.SendWait("{RIGHT}");
+                    forms.SendKeys.SendWait("{RIGHT}");
                     break;
                 case "prev":
-                    SendKeys.SendWait("{LEFT}");
+                    forms.SendKeys.SendWait("{LEFT}");
                     break;
                 case "blackout":
-                    SendKeys.SendWait("B");
+                    forms.SendKeys.SendWait("B");
                     break;
                 case "toggleSlideShow":
                     if (_isSlideshowOn)
                     {
-                        SendKeys.SendWait("{ESC}");
+                        forms.SendKeys.SendWait("{ESC}");
                     }
                     else
                     {
-                        SendKeys.SendWait("+{F5}");
+                        forms.SendKeys.SendWait("+{F5}");
                     }
 
                     //状態を反転する
